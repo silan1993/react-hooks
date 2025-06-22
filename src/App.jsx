@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import UseStateApp from './userState.jsx' 
+import UseEffectApp from './userEffect.jsx'
 
 function App() {
 
@@ -12,8 +13,18 @@ function App() {
   })
 
     const [showUserStateApp, setShowUserStateApp] = useState(false);
+    const [page, setPage] = useState('main')
 
+  if (page === 'useeffect') {
+    return (
+    <>
+    <UseEffectApp />
+        <button onClick={() => setPage('main')}>Back</button>
+        </>
 
+  )
+  
+  }
   const changeAge = (direction) => {
     setPerson((pers) => {
     return {...person,age: person.age+direction,year:person.year+direction}
@@ -29,6 +40,9 @@ function App() {
       <br/>
      <button onClick={() => setShowUserStateApp(true)}>Next Example</button>
       {showUserStateApp && <UseStateApp />}
+      <br/>
+      <br/>
+      <button onClick={() => setPage('useeffect')}>UseEffect Example</button>
     </>
   )
 }
