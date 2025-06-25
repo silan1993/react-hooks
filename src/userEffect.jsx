@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import UseRefApp from "./useRef.jsx";
 
 import "./App.css";
+import { AppContext } from "./context/AppContext.jsx";
 
 function UseEffectApp() {
   let [page, setPage] = useState("useEffect");
@@ -17,6 +18,8 @@ function UseEffectApp() {
       setDate(new Date() + "");
     }, 1000);
   }); // there is no dependency in useEffect. So contineoulty it will contineously display date on page.On every state change it will execute the callback function
+  const { name } = useContext(AppContext);
+
   if (page === "useRef") {
     return <UseRefApp />;
   }
@@ -28,6 +31,7 @@ function UseEffectApp() {
   return (
     <>
       <h1>use Effect</h1>
+      <h1>My name is {name}</h1>
       <h1>{currentDate}</h1>
       <h1>Count is {count}</h1>
       <br />
