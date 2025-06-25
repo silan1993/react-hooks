@@ -7,6 +7,7 @@ import Header from "./components/Header.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import { AppContext } from "./context/AppContext.jsx";
+import UseReducer from "./userReducer.jsx";
 
 function App() {
   const [person, setPerson] = useState({
@@ -54,7 +55,7 @@ function App() {
       <br />
       <br />
       <button onClick={() => setShowUserStateApp(true)}>Next Example</button>
-      {showUserStateApp && <UseStateApp />}
+      {showUserStateApp && <UseReducer />}
       <br />
       <br />
       <button onClick={() => setPage("useeffect")}>UseEffect Example</button>
